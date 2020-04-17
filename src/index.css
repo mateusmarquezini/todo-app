@@ -1,3 +1,17 @@
 body {
     margin: 0;
 }
+
+/* Custom CSS Scrollbar */
+.css-scrollbar::-webkit-scrollbar-track {
+    background-color: #ddd;
+}
+
+.css-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    background-color: #ad081b;
+}
+
+.css-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #ad081b;
+}
