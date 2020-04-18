@@ -1,7 +1,11 @@
 import actionsTypes from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-  todo: []
+  todo: [],
+  user: {
+    firstAccess: true,
+    name: ''
+  }
 }
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -10,23 +14,31 @@ const reducer = (state = INITIAL_STATE, action) => {
       return addNewTodo(state, action.payload);
     case actionsTypes.UPDATE_TODO: 
       return markAsDone(state, action.payload);
+    case actionsTypes.NEXT:
+      return next(state, action.payload)
     default:
       return state;
   }
 }
 
+const next = (state, data) => {
+  const newState = {...state};
+  newState.user = { ...data };
+  return {...newState}
+};
+
 const addNewTodo = (state, data) => {
   const newState = { ...state };
   newState.todo.push(data);
   return { ...newState };
-}
+};
 
 const markAsDone = (state, id) => {
   const newState = { ...state };
   const todoDone = state.todo.find(item => item.id === id);
   todoDone.checked = !todoDone.checked;
   return {...newState}
-}
+};
 
 export default reducer;
 

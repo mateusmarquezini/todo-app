@@ -7,6 +7,13 @@ import actions from './actionTypes';
     }
   }
 
+  export const next = data => {
+    return {
+      type: actions.NEXT,
+      payload: data
+    }
+  }
+
   export const markAsDone = (id) => {
     return {
       type: actions.UPDATE_TODO,

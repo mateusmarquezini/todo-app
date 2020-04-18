@@ -9,6 +9,7 @@ import { markAsDone } from '../../../store/actions';
 const List = () => {
 
     const data = useSelector(state => state.todo);
+    debugger;
     const dispatch = useDispatch();
 
     const play = () => document.getElementById('doneSound').play();
@@ -64,7 +65,7 @@ const List = () => {
     const empty = () => {
         return ( 
             <Box display="flex" justifyContent="evenly" alignItems="center">
-                <img src={noteImg} alt='' width="500px" height="500px" />
+                <img src={noteImg} alt='' width="30%" height="30%" />
                 <Heading size="md">It's a little bit quite here...
                     <span role="img" aria-label="sleep"> 😴️💤️</span>
                 </Heading>

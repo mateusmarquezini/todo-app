@@ -35,7 +35,7 @@ const New = () => {
                 value={value}
             />
             <Box padding={2} marginTop={3}>
-                <Button color="red" text="Add" onClick={() => handleAdd()} inline />
+                <Button color="red" disabled={!value} text="Add" onClick={() => handleAdd()} inline />
             </Box>
         </Box>
         </>
