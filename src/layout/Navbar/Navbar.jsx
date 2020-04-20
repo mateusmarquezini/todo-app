@@ -1,5 +1,5 @@
-import React from 'react' 
-import { Heading, Box, Icon } from 'gestalt';
+import { Box, Heading, Icon } from 'gestalt';
+import React from 'react';
 
 export const Navbar = () => {
     return (
@@ -7,7 +7,7 @@ export const Navbar = () => {
             <ul className="navbar-nav">
                 <Box alignItems="center" marginLeft={4} display="flex">
                     <Box marginRight={1} padding={1}>
-                    <Icon icon="edit" size={22} accessibilityLabel="Edit" color="darkGray" />
+                        <Icon icon="edit" size={22} accessibilityLabel="Edit" color="darkGray" />
                     </Box>
                     <Heading size="md">
                     Todo

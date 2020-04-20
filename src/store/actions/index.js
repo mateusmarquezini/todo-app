@@ -16,7 +16,7 @@ import actions from './actionTypes';
 
   export const markAsDone = (id) => {
     return {
-      type: actions.UPDATE_TODO,
+      type: actions.MARK_AS_DONE,
       payload: id
     }
   }

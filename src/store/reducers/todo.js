@@ -12,7 +12,7 @@ const reducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case actionsTypes.NEW_TODO: 
       return addNewTodo(state, action.payload);
-    case actionsTypes.UPDATE_TODO: 
+    case actionsTypes.MARK_AS_DONE: 
       return markAsDone(state, action.payload);
     case actionsTypes.NEXT:
       return next(state, action.payload)

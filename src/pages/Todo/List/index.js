@@ -9,14 +9,16 @@ import { markAsDone } from '../../../store/actions';
 const List = () => {
 
     const data = useSelector(state => state.todo);
-    debugger;
     const dispatch = useDispatch();
 
     const play = () => document.getElementById('doneSound').play();
 
-    const handleMarkAsDone = (id) => {
+    const handleMarkAsDone = (value) => {
+        const { id } = value;
+        if(!value.checked) {
+            play();
+        } 
         dispatch(markAsDone(id));
-        play();
     };
     
     const markAsDoneSoundElement = () => {
@@ -28,20 +30,22 @@ const List = () => {
         )
     }
 
-    const listTodo = () => {
+    const list = () => {
         return (
             <>
             {markAsDoneSoundElement()}
-            <Heading size="md">Tasks</Heading>
+            <Box marginLeft={12}>
+                <Heading size="md">Tasks</Heading>
+            </Box>
             {data.todo.map(value => (
                 <>
-                    <Box key={value.id} padding={2} display="flex" alignItems="center">
+                    <Box key={value.id} padding={2} marginLeft={12} display="flex" alignItems="center">
                         <Box>
                             <Checkbox
                                 checked={value.checked}
                                 id="todoCheck"
                                 name="checkbox"
-                                onChange={() => handleMarkAsDone(value.id)}
+                                onChange={() => handleMarkAsDone(value)}
                             />
                         </Box>
                         <Box marginLeft={4}>
@@ -75,7 +79,7 @@ const List = () => {
 
     return(
         <Box color="white">
-            {data.todo.length ? listTodo() : empty() }
+            {data.todo.length ? list() : empty() }
         </Box>
     );
 }

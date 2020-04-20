@@ -16,11 +16,11 @@ const New = () => {
     };
 
     const handleAdd = () => {
-            const todo = { 
-                id: uuid(),
-                value,
-                checked: false
-            }
+        const todo = { 
+            id: uuid(),
+            value,
+            checked: false
+        }
         dispatch(newTodo(todo));
         setValue('');
     }
